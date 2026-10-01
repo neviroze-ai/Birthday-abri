@@ -851,3 +851,11 @@ main{
 .photo-btn:hover {
     transform: scale(1.05);
 }
+.birthday-photo {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    margin: 25px auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
