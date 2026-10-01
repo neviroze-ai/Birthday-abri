@@ -1,0 +1,853 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+:root{
+    --night:#071321;
+    --deep:#0d2035;
+    --blue:#9de7ff;
+    --ice:#effcff;
+    --fire:#76d9ff;
+    --peach:#a9e9ff;
+    --pink:#b9dfff;
+    --gold:#d5f4ff;
+    --white:#f7fdff;
+    --muted:#c5dce9;
+}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(118, 217, 255, .2), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(157, 231, 255, .2), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(185, 223, 255, .14), transparent 30%),
+        var(--night);
+    color:var(--white);
+    font-family:"DM Sans", sans-serif;
+    overflow-x:hidden;
+}
+body.party{
+    background:
+        radial-gradient(circle at 10% 10%, rgba(118, 217, 255, .28), transparent 25%),
+        radial-gradient(circle at 90% 15%, rgba(213, 244, 255, .22), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(169, 233, 255, .2), transparent 30%),
+        #081625;
+}
+main{
+    position:relative;
+    z-index:2;
+}
+
+.party-bg span{
+    position:fixed;
+    z-index:1;
+    font-size:1.5rem;
+    opacity:0.25;
+    animation:floatAround 8s ease-in-out infinite;
+    pointer-events: none;
+}
+.party-bg span:nth-child(1){
+    left:8%;
+    top:15%;
+}
+.party-bg span:nth-child(2){
+    left:82%;
+    top:12%;
+    animation-delay:1s;
+}
+
+.party-bg span:nth-child(3){
+    left:14%;
+    top: 60%;
+    animation-delay:2s;
+}
+
+.party-bg span:nth-child(4){
+    left:88%;
+    top:65%;
+    animation-delay: 3s;
+}
+
+.party-bg span:nth-child(5){
+    left:48%;
+    top:8%;
+    animation-delay:1.5s;
+}
+.party-bg span:nth-child(6){
+    left:4%;
+    top:38%;
+    animation-delay:2.5s;
+}
+.party-bg span:nth-child(7){
+    left:92%;
+    top:42%;
+    animation-delay:3.5s;
+}
+.party-bg span:nth-child(8){
+    left:52%;
+    top:88%;
+    animation-delay:4s;
+}
+@keyframes floatAround{
+    0%, 100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+    50%{
+        transform:translateY(-25px) rotate(8deg);
+    }
+}
+
+.hero {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.badge, .warning, .surprise-label{
+    display:inline-block;
+    padding:9px 16px;
+    border-radius:50px;
+    background:rgba(157, 231, 255, .08);
+    border:1px solid rgba(157, 231, 255, .2);
+    color:var(--blue);
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:2px;
+    backdrop-filter:blur(12px);
+    animation:badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse{
+    50% {
+        transform:scale(1.04);
+    }
+}
+.duo{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin:28px 0 10px;
+}
+.character{
+    font-size: 4.5rem;
+    animation: characterFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 18px rgba(157, 231, 255, .3));
+}
+
+.fire {
+    animation-delay: -.8s;
+}
+
+.spark {
+    color: var(--blue);
+    font-size: 2rem;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes characterFloat {
+    50% {
+        transform: translateY(-14px) rotate(4deg);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mini {
+    color: var(--peach);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(4rem, 13vw, 9rem);
+    line-height: .85;
+    letter-spacing: 4px;
+    margin: 15px 0;
+    background: linear-gradient(120deg, #78dfff, #d9f7ff, #8bdcff, #b7eaff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-text {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.main-btn,
+.gift-btn,
+.chaos-btn {
+    border: 0;
+    cursor: pointer;
+    color: #071321;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 15px 25px;
+    border-radius: 50px;
+    background: linear-gradient(120deg, #78dfff, #c8f2ff, #9de7ff);
+    box-shadow: 0 10px 35px rgba(118, 217, 255, .2);
+    transition: .3s ease;
+}
+
+.main-btn:hover,
+.gift-btn:hover,
+.chaos-btn:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 15px 40px rgba(118, 217, 255, .35);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#surprise {
+    padding-bottom: 100px;
+}
+
+.party-banner {
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    background: linear-gradient(90deg, #76d9ff, #bcecff, #8bdcff, #d9f7ff);
+    color: #071321;
+    font-weight: 900;
+    letter-spacing: 2px;
+    overflow: hidden;
+}
+
+.birthday-card,
+.duo-card,
+.things,
+.chaos-section,
+.wish-section,
+.party-ending,
+.food-section {
+    width: min(900px, 90%);
+    margin: 70px auto;
+}
+
+.birthday-card {
+    padding: clamp(30px, 6vw, 70px);
+    text-align: center;
+    border-radius: 35px;
+    background: rgba(157, 231, 255, .055);
+    border: 1px solid rgba(157, 231, 255, .15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 30px 100px rgba(0, 20, 40, .35);
+}
+
+.date {
+    color: var(--blue);
+    font-size: .72rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.birthday-card h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    line-height: .9;
+    margin-bottom: 35px;
+}
+
+.birthday-card h2 span {
+    color: var(--blue);
+}
+
+.birthday-card p {
+    max-width: 680px;
+    margin: 20px auto;
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 1rem;
+}
+
+.birthday-card strong {
+    color: var(--peach);
+}
+
+.quote {
+    margin: 35px auto;
+    padding: 25px;
+    border-left: 3px solid var(--blue);
+    border-right: 3px solid var(--fire);
+    color: var(--white);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.big-feeling {
+    color: var(--blue) !important;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem !important;
+    font-weight: 700;
+}
+
+.signature {
+    margin-top: 40px;
+    font-family: "Great Vibes", cursive;
+    color: var(--blue);
+    font-size: 2.3rem;
+}
+
+.duo-card {
+    padding: 45px 25px;
+    text-align: center;
+}
+
+.duo-title {
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.duo-card h2,
+.chaos-section h2,
+.wish-section h2,
+.party-ending h2,
+.food-section h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    margin: 10px 0 30px;
+}
+
+.duo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.duo-box > div:not(.plus) {
+    width: 260px;
+    min-height: 190px;
+    padding: 30px 20px;
+    border-radius: 25px;
+    background: rgba(157, 231, 255, .06);
+    border: 1px solid rgba(157, 231, 255, .13);
+}
+
+.duo-box span {
+    font-size: 3rem;
+}
+
+.duo-box h3 {
+    margin: 10px 0;
+    color: var(--peach);
+}
+
+.duo-box p {
+    color: var(--muted);
+    font-size: .85rem;
+    line-height: 1.6;
+}
+
+.plus {
+    font-size: 2rem;
+    color: var(--blue);
+}
+
+.duo-ending {
+    margin-top: 35px;
+    color: var(--blue);
+    line-height: 1.7;
+}
+
+.section-heading {
+    text-align: center;
+    color: var(--blue);
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.thing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.thing {
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(157, 231, 255, .05);
+    border: 1px solid rgba(157, 231, 255, .12);
+    transition: .3s ease;
+}
+
+.thing:hover {
+    transform: translateY(-7px) rotate(-1deg);
+    background: rgba(157, 231, 255, .08);
+}
+
+.thing span {
+    font-size: 2rem;
+}
+
+.thing h3 {
+    margin: 15px 0 8px;
+    color: var(--peach);
+}
+
+.thing p {
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.chaos-section {
+    padding: 50px 25px;
+    text-align: center;
+}
+
+.chaos-section h2 {
+    margin-top: 25px;
+}
+
+.report {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 700px;
+}
+
+.report div {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 17px;
+    border-radius: 18px;
+    background: rgba(157, 231, 255, .055);
+    text-align: left;
+}
+
+.report span {
+    font-size: 1.4rem;
+}
+
+.report strong {
+    font-size: .8rem;
+}
+
+.report b {
+    color: var(--blue);
+    font-size: .8rem;
+}
+
+.chaos-btn {
+    background: linear-gradient(120deg, #9de7ff, #76d9ff);
+}
+
+#chaosText {
+    min-height: 30px;
+    margin-top: 25px;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.wish-section {
+    text-align: center;
+    padding: 60px 25px;
+}
+
+.moon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: moonFloat 3s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.wish-section p {
+    max-width: 650px;
+    margin: 18px auto;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+#wishText {
+    color: var(--blue);
+    font-family: "Great Vibes", cursive;
+    font-size: 2rem;
+    margin-top: 30px;
+}
+
+.party-ending {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.balloons {
+    font-size: 3rem;
+    letter-spacing: 15px;
+    animation: balloonBounce 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes balloonBounce {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.party-ending p {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.party-ending h3 {
+    color: var(--blue);
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.food-section {
+    position: relative;
+    padding: 70px 20px;
+    text-align: center;
+    border-radius: 35px;
+    background: rgba(157, 231, 255, .05);
+    border: 1px solid rgba(157, 231, 255, .12);
+    overflow: hidden;
+}
+
+.food-section h3 {
+    color: var(--blue);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.food-section p {
+    color: var(--muted);
+    margin: 10px 0;
+}
+
+.food-punch {
+    color: var(--white) !important;
+    font-weight: 700;
+    margin-top: 25px !important;
+}
+
+.biryani-word {
+    color: var(--blue);
+    margin: 25px 0 !important;
+}
+
+.biryani {
+    position: relative;
+    width: 300px;
+    height: 230px;
+    margin: 50px auto 10px;
+}
+
+.plate {
+    position: absolute;
+    width: 280px;
+    height: 130px;
+    left: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, #f5fbff 0 45%, #c8dce8 46% 55%, #8fa7b8 56% 65%, transparent 66%);
+    transform: rotateX(55deg);
+}
+
+.rice {
+    position: absolute;
+    width: 205px;
+    height: 95px;
+    left: 38px;
+    top: 10px;
+    border-radius: 50%;
+    background: #dff5ff;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,.1);
+}
+
+.rice i {
+    position: absolute;
+    width: 7px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f4fcff;
+    transform: rotate(35deg);
+}
+
+.rice i:nth-child(1) {
+    left: 25px;
+    top: 20px;
+}
+
+.rice i:nth-child(2) {
+    left: 70px;
+    top: 10px;
+    transform: rotate(-20deg);
+}
+
+.rice i:nth-child(3) {
+    left: 110px;
+    top: 25px;
+}
+
+.rice i:nth-child(4) {
+    left: 150px;
+    top: 15px;
+    transform: rotate(-30deg);
+}
+
+.rice i:nth-child(5) {
+    left: 45px;
+    top: 55px;
+}
+
+.rice i:nth-child(6) {
+    left: 125px;
+    top: 58px;
+}
+
+.chicken {
+    position: absolute;
+    width: 50px;
+    height: 42px;
+    background: #8b624d;
+    border-radius: 50% 45% 55% 40%;
+    left: 100px;
+    top: 30px;
+    transform: rotate(-15deg);
+}
+
+.egg {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f8fbff;
+    left: 70px;
+    top: 45px;
+    transform: rotate(25deg);
+}
+
+.egg::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: #9de7ff;
+    border-radius: 50%;
+    left: 8px;
+    top: 13px;
+}
+
+.herb {
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: #7da6b7;
+    border-radius: 50%;
+}
+
+.h1 {
+    left: 145px;
+    top: 65px;
+    transform: rotate(20deg);
+}
+
+.h2 {
+    left: 55px;
+    top: 30px;
+    transform: rotate(-25deg);
+}
+
+.h3 {
+    left: 165px;
+    top: 40px;
+    transform: rotate(-35deg);
+}
+
+.steam {
+    position: absolute;
+    width: 12px;
+    height: 65px;
+    border-radius: 50%;
+    border-left: 3px solid rgba(220,248,255,.55);
+    animation: steam 2s ease-in-out infinite;
+}
+
+.s1 {
+    left: 105px;
+    top: 0;
+}
+
+.s2 {
+    left: 145px;
+    top: -15px;
+    animation-delay: .5s;
+}
+
+.s3 {
+    left: 180px;
+    top: -5px;
+    animation-delay: 1s;
+}
+
+@keyframes steam {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+}
+
+.final-message {
+    margin: 45px auto 20px;
+    padding: 30px;
+    max-width: 600px;
+    border-radius: 25px;
+    background: rgba(157, 231, 255, .06);
+    color: var(--ice);
+    line-height: 1.8;
+}
+
+.final-signature {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.5rem;
+    color: var(--blue);
+    margin-top: 30px;
+}
+
+.confetti-piece {
+    position: fixed;
+    z-index: 999;
+    top: -30px;
+    width: 9px;
+    height: 15px;
+    pointer-events: none;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translate3d(var(--drift), 110vh, 720px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.chaos-piece {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    font-size: 1.8rem;
+    animation: chaosFly 2.2s ease-out forwards;
+}
+
+@keyframes chaosFly {
+    0% {
+        transform: translate(0, 0) scale(.5) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.4) rotate(500deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .character {
+        font-size: 3.5rem;
+    }
+
+    .duo {
+        gap: 12px;
+    }
+
+    .thing-grid,
+    .report {
+        grid-template-columns: 1fr;
+    }
+
+    .birthday-card {
+        padding: 35px 22px;
+    }
+
+    .birthday-card p {
+        font-size: .93rem;
+    }
+
+    .duo-box {
+        flex-direction: column;
+    }
+
+    .plus {
+        transform: rotate(90deg);
+    }
+
+    .biryani {
+        transform: scale(.85);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.photo-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 24px;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.photo-btn:hover {
+    transform: scale(1.05);
+}
